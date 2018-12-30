@@ -232,6 +232,7 @@ function _showUI(mode, entryText, previousWidth, switching) {
     else if (
       symbol === Clutter.KEY_Down ||
       symbol === Clutter.KEY_Tab ||
+      (symbol === Clutter.j && control) ||
       (symbol === Clutter.n && control)
     ) {
       cursor = cursor + 1 < boxes.length ? cursor + 1 : 0;
@@ -242,6 +243,7 @@ function _showUI(mode, entryText, previousWidth, switching) {
       symbol === Clutter.KEY_Up ||
       (symbol === Clutter.ISO_Left_Tab && shift) ||
       (symbol === Clutter.KEY_Tab && shift) ||
+      (symbol === Clutter.k && control) ||
       (symbol === Clutter.p && control)
     ) {
       cursor = cursor > 0 ? cursor - 1 : boxes.length - 1;
@@ -266,9 +268,11 @@ function _showUI(mode, entryText, previousWidth, switching) {
       symbol === Clutter.KEY_Down ||
       symbol === Clutter.KEY_Tab ||
       (symbol === Clutter.n && control) ||
+      (symbol === Clutter.j && control) ||
       symbol === Clutter.KEY_Up ||
       (symbol === Clutter.ISO_Left_Tab && shift) ||
       (symbol === Clutter.KEY_Tab && shift) ||
+      (symbol === Clutter.k && control) ||
       (symbol === Clutter.p && control)
     ) {
       // pass, these where handled already in keypress
@@ -286,7 +290,7 @@ function _showUI(mode, entryText, previousWidth, switching) {
     else if (
       (symbol === Clutter.KEY_Return ||
        symbol === Clutter.KEY_KP_Enter ||
-       (symbol === Clutter.j && control)) &&
+       (symbol === Clutter.g && control)) &&
         o.text === previousEntryContent
     ) {
       cleanUIWithFade();
